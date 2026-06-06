@@ -1,0 +1,10 @@
+Upcoming project bridge:
+
+The same evaluator-generator loop can critique a travel itinerary.
+
+Example itinerary criteria:
+- Budget realism
+- Logical ordering of activities
+- Time feasibility
+- Personalization to user preferences
+- Clear explanation of trade-offs

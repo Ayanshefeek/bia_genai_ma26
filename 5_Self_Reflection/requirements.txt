@@ -1,0 +1,11 @@
+# Core LLM client
+openai==2.38.0
+
+# Environment configuration
+python-dotenv==1.2.2
+
+# Structured validation for evaluator output
+pydantic==2.13.4
+
+# Notebook execution
+ipykernel==7.2.0

@@ -1,0 +1,4 @@
+# Optional AutoGen evaluator-agent preview
+# Install only if you want to run the optional AutoGen notebook cell.
+autogen-agentchat==0.7.5
+autogen-ext[openai]==0.7.5

@@ -1,0 +1,12 @@
+Write a short launch email for working professionals who are considering a live weekend program in Generative AI and Agentic AI Development.
+
+Audience:
+- Software engineers, data analysts, DevOps professionals, and tech managers
+- They are busy, skeptical of hype, and want proof that the program is practical
+
+Constraints:
+- 140–180 words
+- Warm but professional tone
+- Mention live expert-led classes, hands-on projects, and career relevance
+- Do not make unrealistic salary promises
+- End with one clear call to action
