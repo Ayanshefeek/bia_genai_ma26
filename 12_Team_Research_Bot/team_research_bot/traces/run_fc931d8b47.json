@@ -1,0 +1,339 @@
+{
+  "run_id": "run_fc931d8b47",
+  "user_query": "What should an organization consider before using AI agents in customer support?",
+  "source_ids_consulted": [
+    "SRC-001",
+    "SRC-003",
+    "SRC-004"
+  ],
+  "messages": [
+    {
+      "trace_id": "msg_fd0df41b",
+      "sender": "researcher",
+      "receiver": "writer",
+      "message_type": "result",
+      "task": "Use these evidence-backed findings to draft a research brief.",
+      "payload": {
+        "topic": "What should an organization consider before using AI agents in customer support?",
+        "findings": [
+          {
+            "claim": "AI Agents in Customer Support Operations shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls.",
+            "evidence": [
+              {
+                "source_id": "SRC-001",
+                "title": "AI Agents in Customer Support Operations",
+                "snippet": "A regional telecom company piloted an AI support assistant for billing, device troubleshooting, and plan-change questions. The system initially resolved simple questions quickly, but failed when customers mixed multiple intents in one message. The rollout improved only after the team added an escalation rule: unresolved or high-frustration conversations were",
+                "relevance_score": 0.45
+              }
+            ],
+            "confidence": 0.9,
+            "limitations": "The source pack is intentionally small, so this finding should be treated as classroom evidence rather than exhaustive market research."
+          },
+          {
+            "claim": "Multi-Agent Governance Patterns shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls.",
+            "evidence": [
+              {
+                "source_id": "SRC-004",
+                "title": "Multi-Agent Governance Patterns",
+                "snippet": "Structured messages reduce this problem. Each handoff should include sender, receiver, task, payload, confidence, and trace ID. The payload should use a schema that makes required fields explicit. When a message fails validation, the system can stop, repair, or request a revised output before the next agent acts on bad data.",
+                "relevance_score": 0.45
+              }
+            ],
+            "confidence": 0.9,
+            "limitations": "The source pack is intentionally small, so this finding should be treated as classroom evidence rather than exhaustive market research."
+          },
+          {
+            "claim": "Healthcare Administrative Agents shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls.",
+            "evidence": [
+              {
+                "source_id": "SRC-003",
+                "title": "Healthcare Administrative Agents",
+                "snippet": "A hospital operations team explored AI agents for appointment scheduling, referral summarization, and insurance pre-authorization support. Clinical diagnosis was deliberately out of scope. The highest-value use case was administrative summarization: turning long referral notes into structured intake summaries for staff review.",
+                "relevance_score": 0.45
+              }
+            ],
+            "confidence": 0.9,
+            "limitations": "The source pack is intentionally small, so this finding should be treated as classroom evidence rather than exhaustive market research."
+          }
+        ],
+        "unresolved_questions": [
+          "Would live external sources confirm the same pattern today?",
+          "Which organization-specific constraints would change the recommendation?"
+        ],
+        "overall_confidence": 0.74
+      },
+      "confidence": 0.74,
+      "created_at": "2026-07-04T17:09:47.614741+00:00"
+    },
+    {
+      "trace_id": "msg_798191b6",
+      "sender": "writer",
+      "receiver": "fact_checker",
+      "message_type": "result",
+      "task": "Check this draft against the Researcher evidence.",
+      "payload": {
+        "title": "Research Brief: What should an organization consider before using AI agents in customer support?",
+        "executive_summary": "Initial draft: The source pack suggests that this topic should be handled as a workflow design problem, not just a model-selection problem. The strongest pattern is to combine automation with evidence tracking, review gates, and clear escalation criteria.",
+        "sections": [
+          {
+            "heading": "Finding 1: Evidence-backed design implication",
+            "content": "AI Agents in Customer Support Operations shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-001. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.",
+            "claim_ids": [
+              0
+            ]
+          },
+          {
+            "heading": "Finding 2: Evidence-backed design implication",
+            "content": "Multi-Agent Governance Patterns shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-004. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.",
+            "claim_ids": [
+              1
+            ]
+          },
+          {
+            "heading": "Finding 3: Evidence-backed design implication",
+            "content": "Healthcare Administrative Agents shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-003. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.",
+            "claim_ids": [
+              2
+            ]
+          }
+        ],
+        "risks_or_uncertainties": [
+          "The sample sources are limited and should not be treated as live market coverage.",
+          "Recommendations may change when real organization policies or regulations are added."
+        ],
+        "source_ids_used": [
+          "SRC-001",
+          "SRC-003",
+          "SRC-004"
+        ]
+      },
+      "confidence": 0.72,
+      "created_at": "2026-07-04T17:09:47.616583+00:00"
+    },
+    {
+      "trace_id": "msg_76abe46e",
+      "sender": "fact_checker",
+      "receiver": "editor",
+      "message_type": "critique",
+      "task": "Revise the draft if needed; otherwise prepare final editing.",
+      "payload": {
+        "checks": [
+          {
+            "claim": "Finding 1: Evidence-backed design implication",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001",
+              "SRC-003",
+              "SRC-004"
+            ],
+            "issue": "The claim is grounded in the research report.",
+            "recommendation": "Keep the claim and preserve source references."
+          },
+          {
+            "claim": "Finding 2: Evidence-backed design implication",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001",
+              "SRC-003",
+              "SRC-004"
+            ],
+            "issue": "The claim is grounded in the research report.",
+            "recommendation": "Keep the claim and preserve source references."
+          },
+          {
+            "claim": "Finding 3: Evidence-backed design implication",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001",
+              "SRC-003",
+              "SRC-004"
+            ],
+            "issue": "The claim is grounded in the research report.",
+            "recommendation": "Keep the claim and preserve source references."
+          }
+        ],
+        "summary": "Most claims are supported by the bundled source pack. Limitations should remain visible because the research set is intentionally small.",
+        "revision_required": false,
+        "overall_reliability": 0.82
+      },
+      "confidence": 0.82,
+      "created_at": "2026-07-04T17:09:47.619094+00:00"
+    },
+    {
+      "trace_id": "msg_59256a61",
+      "sender": "editor",
+      "receiver": "orchestrator",
+      "message_type": "final",
+      "task": "Return the final answer to the user.",
+      "payload": {
+        "title": "Research Brief: What should an organization consider before using AI agents in customer support?",
+        "final_answer": "Initial draft: The source pack suggests that this topic should be handled as a workflow design problem, not just a model-selection problem. The strongest pattern is to combine automation with evidence tracking, review gates, and clear escalation criteria.\n\nFinding 1: Evidence-backed design implication: AI Agents in Customer Support Operations shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-001. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.\n\nFinding 2: Evidence-backed design implication: Multi-Agent Governance Patterns shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-004. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.\n\nFinding 3: Evidence-backed design implication: Healthcare Administrative Agents shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-003. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.",
+        "key_takeaways": [
+          "Use structured handoffs so each agent receives exactly the fields it needs.",
+          "Keep source IDs attached to claims so review agents can verify evidence quickly.",
+          "Use a revision limit to prevent critic loops from becoming infinite."
+        ],
+        "caveats": [
+          "The sample sources are limited and should not be treated as live market coverage.",
+          "Recommendations may change when real organization policies or regulations are added."
+        ],
+        "references": [
+          "SRC-001",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "editor_notes": "Unsupported or uncertain claims were softened. The final answer keeps caveats visible instead of hiding uncertainty."
+      },
+      "confidence": 0.82,
+      "created_at": "2026-07-04T17:09:47.620390+00:00"
+    }
+  ],
+  "research_report": {
+    "topic": "What should an organization consider before using AI agents in customer support?",
+    "findings": [
+      {
+        "claim": "AI Agents in Customer Support Operations shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls.",
+        "evidence": [
+          {
+            "source_id": "SRC-001",
+            "title": "AI Agents in Customer Support Operations",
+            "snippet": "A regional telecom company piloted an AI support assistant for billing, device troubleshooting, and plan-change questions. The system initially resolved simple questions quickly, but failed when customers mixed multiple intents in one message. The rollout improved only after the team added an escalation rule: unresolved or high-frustration conversations were",
+            "relevance_score": 0.45
+          }
+        ],
+        "confidence": 0.9,
+        "limitations": "The source pack is intentionally small, so this finding should be treated as classroom evidence rather than exhaustive market research."
+      },
+      {
+        "claim": "Multi-Agent Governance Patterns shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls.",
+        "evidence": [
+          {
+            "source_id": "SRC-004",
+            "title": "Multi-Agent Governance Patterns",
+            "snippet": "Structured messages reduce this problem. Each handoff should include sender, receiver, task, payload, confidence, and trace ID. The payload should use a schema that makes required fields explicit. When a message fails validation, the system can stop, repair, or request a revised output before the next agent acts on bad data.",
+            "relevance_score": 0.45
+          }
+        ],
+        "confidence": 0.9,
+        "limitations": "The source pack is intentionally small, so this finding should be treated as classroom evidence rather than exhaustive market research."
+      },
+      {
+        "claim": "Healthcare Administrative Agents shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls.",
+        "evidence": [
+          {
+            "source_id": "SRC-003",
+            "title": "Healthcare Administrative Agents",
+            "snippet": "A hospital operations team explored AI agents for appointment scheduling, referral summarization, and insurance pre-authorization support. Clinical diagnosis was deliberately out of scope. The highest-value use case was administrative summarization: turning long referral notes into structured intake summaries for staff review.",
+            "relevance_score": 0.45
+          }
+        ],
+        "confidence": 0.9,
+        "limitations": "The source pack is intentionally small, so this finding should be treated as classroom evidence rather than exhaustive market research."
+      }
+    ],
+    "unresolved_questions": [
+      "Would live external sources confirm the same pattern today?",
+      "Which organization-specific constraints would change the recommendation?"
+    ],
+    "overall_confidence": 0.74
+  },
+  "draft_report": {
+    "title": "Research Brief: What should an organization consider before using AI agents in customer support?",
+    "executive_summary": "Initial draft: The source pack suggests that this topic should be handled as a workflow design problem, not just a model-selection problem. The strongest pattern is to combine automation with evidence tracking, review gates, and clear escalation criteria.",
+    "sections": [
+      {
+        "heading": "Finding 1: Evidence-backed design implication",
+        "content": "AI Agents in Customer Support Operations shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-001. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.",
+        "claim_ids": [
+          0
+        ]
+      },
+      {
+        "heading": "Finding 2: Evidence-backed design implication",
+        "content": "Multi-Agent Governance Patterns shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-004. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.",
+        "claim_ids": [
+          1
+        ]
+      },
+      {
+        "heading": "Finding 3: Evidence-backed design implication",
+        "content": "Healthcare Administrative Agents shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-003. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.",
+        "claim_ids": [
+          2
+        ]
+      }
+    ],
+    "risks_or_uncertainties": [
+      "The sample sources are limited and should not be treated as live market coverage.",
+      "Recommendations may change when real organization policies or regulations are added."
+    ],
+    "source_ids_used": [
+      "SRC-001",
+      "SRC-003",
+      "SRC-004"
+    ]
+  },
+  "fact_check_report": {
+    "checks": [
+      {
+        "claim": "Finding 1: Evidence-backed design implication",
+        "verdict": "supported",
+        "evidence_refs": [
+          "SRC-001",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "issue": "The claim is grounded in the research report.",
+        "recommendation": "Keep the claim and preserve source references."
+      },
+      {
+        "claim": "Finding 2: Evidence-backed design implication",
+        "verdict": "supported",
+        "evidence_refs": [
+          "SRC-001",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "issue": "The claim is grounded in the research report.",
+        "recommendation": "Keep the claim and preserve source references."
+      },
+      {
+        "claim": "Finding 3: Evidence-backed design implication",
+        "verdict": "supported",
+        "evidence_refs": [
+          "SRC-001",
+          "SRC-003",
+          "SRC-004"
+        ],
+        "issue": "The claim is grounded in the research report.",
+        "recommendation": "Keep the claim and preserve source references."
+      }
+    ],
+    "summary": "Most claims are supported by the bundled source pack. Limitations should remain visible because the research set is intentionally small.",
+    "revision_required": false,
+    "overall_reliability": 0.82
+  },
+  "final_report": {
+    "title": "Research Brief: What should an organization consider before using AI agents in customer support?",
+    "final_answer": "Initial draft: The source pack suggests that this topic should be handled as a workflow design problem, not just a model-selection problem. The strongest pattern is to combine automation with evidence tracking, review gates, and clear escalation criteria.\n\nFinding 1: Evidence-backed design implication: AI Agents in Customer Support Operations shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-001. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.\n\nFinding 2: Evidence-backed design implication: Multi-Agent Governance Patterns shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-004. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.\n\nFinding 3: Evidence-backed design implication: Healthcare Administrative Agents shows that AI-assisted customer support works best when automation is paired with escalation paths and quality controls. The supporting evidence comes from SRC-003. The practical implication is to design the workflow with clear ownership, logged decisions, and an explicit point where a human or reviewer can intervene.",
+    "key_takeaways": [
+      "Use structured handoffs so each agent receives exactly the fields it needs.",
+      "Keep source IDs attached to claims so review agents can verify evidence quickly.",
+      "Use a revision limit to prevent critic loops from becoming infinite."
+    ],
+    "caveats": [
+      "The sample sources are limited and should not be treated as live market coverage.",
+      "Recommendations may change when real organization policies or regulations are added."
+    ],
+    "references": [
+      "SRC-001",
+      "SRC-003",
+      "SRC-004"
+    ],
+    "editor_notes": "Unsupported or uncertain claims were softened. The final answer keeps caveats visible instead of hiding uncertainty."
+  },
+  "revision_count": 0,
+  "max_revisions": 1,
+  "status": "completed",
+  "errors": []
+}
