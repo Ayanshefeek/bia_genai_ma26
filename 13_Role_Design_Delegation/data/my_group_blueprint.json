@@ -1,0 +1,147 @@
+{
+  "project_name": "Flawed Fast Research Bot",
+  "user_goal": "Answer business questions as quickly and cheaply as possible.",
+  "delegation_pattern": "flat",
+  "roles": [
+    {
+      "name": "Researcher",
+      "role_type": "Researcher",
+      "mission": "Find information fast.",
+      "responsibilities": [
+        "Search quickly"
+      ],
+      "decision_rights": [],
+      "tools_allowed": [
+        "Search"
+      ],
+      "inputs_expected": [
+        "Question"
+      ],
+      "outputs_owned": [
+        "Final answer"
+      ],
+      "success_metrics": [
+        "Speed"
+      ],
+      "failure_modes": [],
+      "stop_conditions": [],
+      "escalation_path": "None defined",
+      "memory_access": "read_write",
+      "max_iterations": 5
+    },
+    {
+      "name": "Writer",
+      "role_type": "Writer",
+      "mission": "Write a confident answer.",
+      "responsibilities": [
+        "Write final response"
+      ],
+      "decision_rights": [
+        "Can rewrite anything"
+      ],
+      "tools_allowed": [
+        "LLM"
+      ],
+      "inputs_expected": [
+        "Research notes"
+      ],
+      "outputs_owned": [
+        "Final answer"
+      ],
+      "success_metrics": [
+        "Looks polished"
+      ],
+      "failure_modes": [],
+      "stop_conditions": [],
+      "escalation_path": "None defined",
+      "memory_access": "read_write",
+      "max_iterations": 5
+    },
+    {
+      "name": "Critic",
+      "role_type": "Critic",
+      "mission": "Find problems.",
+      "responsibilities": [
+        "Critique output"
+      ],
+      "decision_rights": [
+        "Can request unlimited revisions"
+      ],
+      "tools_allowed": [],
+      "inputs_expected": [
+        "Draft"
+      ],
+      "outputs_owned": [],
+      "success_metrics": [
+        "Number of issues found"
+      ],
+      "failure_modes": [],
+      "stop_conditions": [],
+      "escalation_path": "Not defined",
+      "memory_access": "none",
+      "max_iterations": 8
+    }
+  ],
+  "raci": [
+    {
+      "task": "Research answer",
+      "responsible": [],
+      "accountable": "",
+      "consulted": [
+        "Unknown Manager"
+      ],
+      "informed": [],
+      "artifact": "",
+      "acceptance_criteria": []
+    },
+    {
+      "task": "Write answer",
+      "responsible": [
+        "Writer"
+      ],
+      "accountable": "Writer",
+      "consulted": [
+        "Researcher"
+      ],
+      "informed": [
+        "Writer"
+      ],
+      "artifact": "Answer",
+      "acceptance_criteria": []
+    }
+  ],
+  "handoff_contracts": [
+    {
+      "name": "Research to writing",
+      "source_role": "Researcher",
+      "target_role": "Writer",
+      "trigger": "Whenever ready",
+      "input_schema": {},
+      "output_schema": {},
+      "quality_checks": [],
+      "stop_conditions": [],
+      "retry_policy": "",
+      "escalation_path": "",
+      "logging_fields": []
+    }
+  ],
+  "incentive_policy": {
+    "primary_success_metric": "Speed and low cost",
+    "balancing_metrics": [
+      "Cheap tokens"
+    ],
+    "anti_goals": [],
+    "incentive_risks": [
+      "May skip checking"
+    ],
+    "mitigation_rules": []
+  },
+  "loop_control": {
+    "max_team_iterations": 10,
+    "max_revision_cycles": 7,
+    "escalation_after_failures": 5,
+    "human_escalation_rule": "",
+    "termination_rule": ""
+  },
+  "notes_for_next_build": "This design is intentionally flawed for the classroom debugging exercise."
+}

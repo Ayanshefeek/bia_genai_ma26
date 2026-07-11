@@ -1,0 +1,587 @@
+{
+  "project_name": "Evidence-Backed Research Bot",
+  "user_goal": "Answer a business question with a concise response supported by source-backed claims.",
+  "delegation_pattern": "hybrid",
+  "roles": [
+    {
+      "name": "Editor Orchestrator",
+      "role_type": "Editor",
+      "mission": "Own the final answer and coordinate the team until the response is complete, evidence-backed, and safe.",
+      "responsibilities": [
+        "Interpret the user request and define the final answer format",
+        "Assign research, writing, and verification work",
+        "Resolve conflicts between Writer and Fact-Checker",
+        "Approve the final response"
+      ],
+      "decision_rights": [
+        "Can request one revision cycle from Writer",
+        "Can reject unsupported claims",
+        "Can escalate to human review when evidence is insufficient"
+      ],
+      "tools_allowed": [
+        "No external tools in this design exercise"
+      ],
+      "inputs_expected": [
+        "User question",
+        "Research plan",
+        "Draft answer",
+        "Fact-check report"
+      ],
+      "outputs_owned": [
+        "Final answer",
+        "Revision decision"
+      ],
+      "success_metrics": [
+        "Final answer addresses the user question",
+        "Every factual claim is backed by evidence",
+        "Uncertainty is stated when evidence is weak"
+      ],
+      "failure_modes": [
+        "Approves polished but unsupported writing",
+        "Becomes a bottleneck for every small decision",
+        "Allows too many revision loops"
+      ],
+      "stop_conditions": [
+        "Fact-Checker marks all major claims as supported",
+        "Maximum revision cycles reached",
+        "Evidence gap requires human escalation"
+      ],
+      "escalation_path": "Escalate to human reviewer if core claims remain unsupported after two cycles.",
+      "memory_access": "read_write",
+      "max_iterations": 2
+    },
+    {
+      "name": "Planner",
+      "role_type": "Planner",
+      "mission": "Convert the user question into focused research subquestions and acceptance criteria.",
+      "responsibilities": [
+        "Break the request into 2-4 research questions",
+        "Define what evidence is needed",
+        "Set draft acceptance criteria for Writer and Fact-Checker"
+      ],
+      "decision_rights": [
+        "Can narrow an ambiguous question into explicit assumptions",
+        "Can reject research notes that do not answer the planned subquestions"
+      ],
+      "tools_allowed": [
+        "No external tools in this design exercise"
+      ],
+      "inputs_expected": [
+        "User question",
+        "Editor constraints"
+      ],
+      "outputs_owned": [
+        "Research plan"
+      ],
+      "success_metrics": [
+        "Research questions are specific",
+        "Acceptance criteria are testable",
+        "Plan can be completed within the session scope"
+      ],
+      "failure_modes": [
+        "Over-plans instead of enabling action",
+        "Creates too many subquestions",
+        "Ignores the user's actual decision need"
+      ],
+      "stop_conditions": [
+        "Research plan has subquestions, evidence needs, and acceptance criteria",
+        "Editor approves the plan"
+      ],
+      "escalation_path": "Escalate ambiguity to Editor Orchestrator.",
+      "memory_access": "read_only",
+      "max_iterations": 1
+    },
+    {
+      "name": "Researcher",
+      "role_type": "Researcher",
+      "mission": "Gather source-backed notes that directly answer the planned research questions.",
+      "responsibilities": [
+        "Collect evidence notes against each research question",
+        "Separate facts, assumptions, and open questions",
+        "Attach source labels or retrieval references to each claim"
+      ],
+      "decision_rights": [
+        "Can mark a subquestion as insufficient evidence",
+        "Can ask Planner to clarify vague evidence needs"
+      ],
+      "tools_allowed": [
+        "Search tool in the next build",
+        "Document retriever in the next build"
+      ],
+      "inputs_expected": [
+        "Research plan",
+        "Evidence requirements"
+      ],
+      "outputs_owned": [
+        "Evidence table",
+        "Evidence gap list"
+      ],
+      "success_metrics": [
+        "Each evidence note maps to a research question",
+        "Each factual claim has a source label",
+        "Evidence gaps are explicit"
+      ],
+      "failure_modes": [
+        "Collects loosely related information",
+        "Mistakes source volume for source quality",
+        "Hides uncertainty"
+      ],
+      "stop_conditions": [
+        "Minimum evidence threshold reached for each subquestion",
+        "Evidence gaps are documented",
+        "Planner confirms notes are usable"
+      ],
+      "escalation_path": "Escalate missing evidence to Planner, then Editor Orchestrator.",
+      "memory_access": "read_write",
+      "max_iterations": 2
+    },
+    {
+      "name": "Writer",
+      "role_type": "Writer",
+      "mission": "Turn evidence notes into a clear draft without adding unsupported claims.",
+      "responsibilities": [
+        "Draft the response from the evidence table",
+        "Preserve source labels for factual claims",
+        "State limitations and uncertainty plainly"
+      ],
+      "decision_rights": [
+        "Can simplify language and structure",
+        "Cannot invent facts not present in evidence",
+        "Can request more evidence from Researcher"
+      ],
+      "tools_allowed": [
+        "LLM drafting in the next build"
+      ],
+      "inputs_expected": [
+        "Research plan",
+        "Evidence table",
+        "User answer format"
+      ],
+      "outputs_owned": [
+        "Draft answer"
+      ],
+      "success_metrics": [
+        "Draft is understandable to a business reader",
+        "Draft uses only provided evidence",
+        "Draft includes limitations when needed"
+      ],
+      "failure_modes": [
+        "Adds persuasive language not supported by evidence",
+        "Drops source labels",
+        "Overstates certainty"
+      ],
+      "stop_conditions": [
+        "Draft covers all required subquestions",
+        "Each factual paragraph maps to evidence",
+        "No unsupported claims intentionally added"
+      ],
+      "escalation_path": "Escalate evidence gaps to Researcher and final trade-offs to Editor Orchestrator.",
+      "memory_access": "read_only",
+      "max_iterations": 2
+    },
+    {
+      "name": "Fact-Checker",
+      "role_type": "Fact-Checker",
+      "mission": "Verify that every important claim in the draft is supported by the evidence table.",
+      "responsibilities": [
+        "Extract checkable claims from the draft",
+        "Compare each claim against the evidence table",
+        "Flag unsupported, overstated, or missing-source claims"
+      ],
+      "decision_rights": [
+        "Can block final approval when major claims are unsupported",
+        "Can request revisions from Writer",
+        "Cannot rewrite the final answer without Editor approval"
+      ],
+      "tools_allowed": [
+        "Evidence table",
+        "Optional retrieval check in the next build"
+      ],
+      "inputs_expected": [
+        "Draft answer",
+        "Evidence table",
+        "Acceptance criteria"
+      ],
+      "outputs_owned": [
+        "Fact-check report"
+      ],
+      "success_metrics": [
+        "All major claims are classified as supported, weak, or unsupported",
+        "Unsupported claims include a clear fix",
+        "No infinite nitpicking beyond defined criteria"
+      ],
+      "failure_modes": [
+        "Nitpicks style instead of factual support",
+        "Blocks progress without actionable fixes",
+        "Misses claims hidden in summary language"
+      ],
+      "stop_conditions": [
+        "All major claims are checked",
+        "Unsupported claims are listed with fixes",
+        "Maximum revision cycles reached"
+      ],
+      "escalation_path": "Escalate unresolved claim disputes to Editor Orchestrator.",
+      "memory_access": "read_only",
+      "max_iterations": 2
+    },
+    {
+      "name": "Memory Manager",
+      "role_type": "Memory Manager",
+      "mission": "Store only validated reusable context and avoid polluting memory with drafts or unsupported claims.",
+      "responsibilities": [
+        "Store final approved answer metadata",
+        "Store reusable source notes only after verification",
+        "Reject noisy intermediate drafts from long-term memory"
+      ],
+      "decision_rights": [
+        "Can refuse to store unverified claims",
+        "Can tag memory records as temporary or validated"
+      ],
+      "tools_allowed": [
+        "Local JSON store in this design exercise",
+        "Vector store in future builds"
+      ],
+      "inputs_expected": [
+        "Final answer",
+        "Fact-check report",
+        "Approved source notes"
+      ],
+      "outputs_owned": [
+        "Memory update record"
+      ],
+      "success_metrics": [
+        "Only validated facts enter long-term memory",
+        "Stored records include provenance",
+        "Temporary notes expire or remain isolated"
+      ],
+      "failure_modes": [
+        "Stores unverified claims",
+        "Stores duplicate noisy notes",
+        "Makes stale context look authoritative"
+      ],
+      "stop_conditions": [
+        "Only approved source notes have been stored",
+        "Memory update record includes provenance and expiry decision"
+      ],
+      "escalation_path": "Escalate questionable records to Editor Orchestrator.",
+      "memory_access": "read_write",
+      "max_iterations": 1
+    }
+  ],
+  "raci": [
+    {
+      "task": "Interpret user question",
+      "responsible": [
+        "Editor Orchestrator"
+      ],
+      "accountable": "Editor Orchestrator",
+      "consulted": [
+        "Planner"
+      ],
+      "informed": [
+        "Researcher",
+        "Writer",
+        "Fact-Checker",
+        "Memory Manager"
+      ],
+      "artifact": "Clarified user goal",
+      "acceptance_criteria": [
+        "Goal is specific enough for research",
+        "Output format is known",
+        "Ambiguities are stated"
+      ]
+    },
+    {
+      "task": "Create research plan",
+      "responsible": [
+        "Planner"
+      ],
+      "accountable": "Editor Orchestrator",
+      "consulted": [
+        "Researcher",
+        "Fact-Checker"
+      ],
+      "informed": [
+        "Writer",
+        "Memory Manager"
+      ],
+      "artifact": "Research plan",
+      "acceptance_criteria": [
+        "2-4 subquestions are defined",
+        "Evidence needs are testable",
+        "Plan fits the available time"
+      ]
+    },
+    {
+      "task": "Gather evidence",
+      "responsible": [
+        "Researcher"
+      ],
+      "accountable": "Planner",
+      "consulted": [
+        "Fact-Checker"
+      ],
+      "informed": [
+        "Writer",
+        "Editor Orchestrator",
+        "Memory Manager"
+      ],
+      "artifact": "Evidence table",
+      "acceptance_criteria": [
+        "Each note maps to a subquestion",
+        "Each factual note has a source label",
+        "Evidence gaps are listed"
+      ]
+    },
+    {
+      "task": "Draft answer",
+      "responsible": [
+        "Writer"
+      ],
+      "accountable": "Editor Orchestrator",
+      "consulted": [
+        "Researcher"
+      ],
+      "informed": [
+        "Fact-Checker",
+        "Memory Manager"
+      ],
+      "artifact": "Draft answer",
+      "acceptance_criteria": [
+        "Draft directly answers the question",
+        "Draft uses only evidence-table claims",
+        "Uncertainty is stated"
+      ]
+    },
+    {
+      "task": "Verify claims",
+      "responsible": [
+        "Fact-Checker"
+      ],
+      "accountable": "Editor Orchestrator",
+      "consulted": [
+        "Researcher",
+        "Writer"
+      ],
+      "informed": [
+        "Memory Manager"
+      ],
+      "artifact": "Fact-check report",
+      "acceptance_criteria": [
+        "Major claims are classified",
+        "Unsupported claims have proposed fixes",
+        "No more than two revision cycles are requested"
+      ]
+    },
+    {
+      "task": "Finalize and approve answer",
+      "responsible": [
+        "Editor Orchestrator"
+      ],
+      "accountable": "Editor Orchestrator",
+      "consulted": [
+        "Fact-Checker",
+        "Writer"
+      ],
+      "informed": [
+        "Researcher",
+        "Planner",
+        "Memory Manager"
+      ],
+      "artifact": "Final answer",
+      "acceptance_criteria": [
+        "All high-risk claims are supported or removed",
+        "Final answer is concise and useful",
+        "Known limitations are visible"
+      ]
+    },
+    {
+      "task": "Store validated learnings",
+      "responsible": [
+        "Memory Manager"
+      ],
+      "accountable": "Editor Orchestrator",
+      "consulted": [
+        "Fact-Checker"
+      ],
+      "informed": [
+        "Planner",
+        "Researcher",
+        "Writer"
+      ],
+      "artifact": "Memory update record",
+      "acceptance_criteria": [
+        "Only verified facts are stored",
+        "Stored items include provenance",
+        "Draft-only claims are excluded"
+      ]
+    }
+  ],
+  "handoff_contracts": [
+    {
+      "name": "Planner to Researcher: research brief",
+      "source_role": "Planner",
+      "target_role": "Researcher",
+      "trigger": "Editor approves clarified user goal.",
+      "input_schema": {
+        "user_goal": "Plain-language question and desired answer format",
+        "constraints": "Scope, time, and quality constraints"
+      },
+      "output_schema": {
+        "research_questions": "List of focused subquestions",
+        "evidence_needs": "What evidence would answer each subquestion",
+        "acceptance_criteria": "Testable criteria for successful research"
+      },
+      "quality_checks": [
+        "No more than four subquestions",
+        "Each subquestion is answerable with evidence",
+        "Acceptance criteria are measurable"
+      ],
+      "stop_conditions": [
+        "Researcher confirms brief is actionable",
+        "Editor resolves unresolved ambiguity"
+      ],
+      "retry_policy": "Planner may revise once if Researcher flags ambiguity; then escalate to Editor Orchestrator.",
+      "escalation_path": "Editor Orchestrator resolves scope disputes.",
+      "logging_fields": [
+        "user_goal",
+        "research_questions_count",
+        "open_ambiguities"
+      ]
+    },
+    {
+      "name": "Researcher to Writer: evidence table",
+      "source_role": "Researcher",
+      "target_role": "Writer",
+      "trigger": "Researcher reaches minimum evidence threshold or documents evidence gaps.",
+      "input_schema": {
+        "research_questions": "Subquestions from the research plan",
+        "evidence_needs": "Required evidence types"
+      },
+      "output_schema": {
+        "claims": "Atomic factual claims",
+        "source_labels": "Source IDs, document IDs, or retrieval references",
+        "confidence": "High, medium, or low confidence for each claim",
+        "evidence_gaps": "Known missing or weak evidence"
+      },
+      "quality_checks": [
+        "Each claim has a source label",
+        "Confidence is present for each claim",
+        "Evidence gaps are visible instead of hidden"
+      ],
+      "stop_conditions": [
+        "All subquestions have at least one evidence note or a documented gap",
+        "Planner accepts the table as usable"
+      ],
+      "retry_policy": "Researcher gets one additional evidence pass if Writer finds missing support.",
+      "escalation_path": "Planner resolves research scope; Editor Orchestrator resolves business trade-offs.",
+      "logging_fields": [
+        "claim_count",
+        "source_count",
+        "low_confidence_count",
+        "evidence_gap_count"
+      ]
+    },
+    {
+      "name": "Writer to Fact-Checker: draft for verification",
+      "source_role": "Writer",
+      "target_role": "Fact-Checker",
+      "trigger": "Writer completes first draft from evidence table.",
+      "input_schema": {
+        "evidence_table": "Claims and source labels from Researcher",
+        "draft_answer": "Writer's answer draft"
+      },
+      "output_schema": {
+        "draft_answer": "Clear answer that preserves source references",
+        "claim_map": "Mapping from draft claims to evidence IDs",
+        "known_limitations": "Uncertainty and missing evidence"
+      },
+      "quality_checks": [
+        "No claim lacks a source mapping",
+        "Limitations are explicitly stated",
+        "Draft does not introduce facts absent from evidence"
+      ],
+      "stop_conditions": [
+        "Fact-Checker receives claim map",
+        "No unsupported claim is intentionally passed forward"
+      ],
+      "retry_policy": "Writer revises at most twice based on Fact-Checker report.",
+      "escalation_path": "Editor Orchestrator decides whether to remove unsupported claims or ask for more research.",
+      "logging_fields": [
+        "draft_version",
+        "mapped_claim_count",
+        "unmapped_claim_count"
+      ]
+    },
+    {
+      "name": "Fact-Checker to Editor: verification report",
+      "source_role": "Fact-Checker",
+      "target_role": "Editor Orchestrator",
+      "trigger": "Fact-Checker completes claim verification.",
+      "input_schema": {
+        "draft_answer": "Writer's draft",
+        "claim_map": "Draft claim to evidence mapping",
+        "evidence_table": "Researcher evidence notes"
+      },
+      "output_schema": {
+        "supported_claims": "Claims fully supported by evidence",
+        "weak_claims": "Claims with partial or low-confidence evidence",
+        "unsupported_claims": "Claims that must be removed, revised, or researched",
+        "recommended_action": "Approve, revise, research more, or escalate"
+      },
+      "quality_checks": [
+        "Each unsupported claim includes a concrete fix",
+        "Style comments are separated from factual problems",
+        "Report uses the same claim IDs as the draft"
+      ],
+      "stop_conditions": [
+        "All major claims have a status",
+        "Recommended action is explicit"
+      ],
+      "retry_policy": "Fact-Checker can request at most two revision cycles before escalation.",
+      "escalation_path": "Editor Orchestrator chooses final action.",
+      "logging_fields": [
+        "supported_count",
+        "weak_count",
+        "unsupported_count",
+        "recommended_action"
+      ]
+    }
+  ],
+  "incentive_policy": {
+    "primary_success_metric": "Useful answer with verified, evidence-backed claims",
+    "balancing_metrics": [
+      "Conciseness",
+      "Latency within classroom demo limits",
+      "Cost awareness",
+      "Coverage of the user's actual decision need",
+      "Safe handling of uncertain or sensitive information"
+    ],
+    "anti_goals": [
+      "Do not invent unsupported claims",
+      "Do not optimize for citation count over citation quality",
+      "Do not hide uncertainty to sound confident",
+      "Do not store unverified claims in long-term memory"
+    ],
+    "incentive_risks": [
+      "Writer may optimize for polish over truth",
+      "Researcher may optimize for source volume over relevance",
+      "Fact-Checker may nitpick style and create loops",
+      "Editor may approve too early to save time"
+    ],
+    "mitigation_rules": [
+      "Unsupported claims must be removed or marked uncertain",
+      "Evidence gaps are allowed when stated transparently",
+      "Fact-Checker can request at most two revision cycles",
+      "Final answer must include limitations when evidence is weak"
+    ]
+  },
+  "loop_control": {
+    "max_team_iterations": 3,
+    "max_revision_cycles": 2,
+    "escalation_after_failures": 2,
+    "human_escalation_rule": "Ask for human review when evidence is insufficient after two revision cycles or the user request is high-stakes.",
+    "termination_rule": "Stop when final answer is approved, max revision cycles are reached, or human escalation is triggered."
+  },
+  "notes_for_next_build": "For the Team Research Bot build, Planner and Memory Manager can be implemented as functions or shared state while Researcher, Writer, Fact-Checker, and Editor become the four main agents."
+}

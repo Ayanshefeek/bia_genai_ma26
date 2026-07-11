@@ -1,0 +1,11 @@
+# Core validation
+pydantic==2.13.4
+
+# Environment configuration
+python-dotenv==1.2.2
+
+# Optional LLM critique
+openai==2.43.0
+
+# Tests
+pytest==9.1.1

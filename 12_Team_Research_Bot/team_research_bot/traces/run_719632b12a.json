@@ -1,0 +1,408 @@
+{
+  "run_id": "run_719632b12a",
+  "user_query": "What should an organization consider before using AI agents in customer support?",
+  "source_ids_consulted": [
+    "SRC-001"
+  ],
+  "messages": [
+    {
+      "trace_id": "msg_ee93a186",
+      "sender": "researcher",
+      "receiver": "writer",
+      "message_type": "result",
+      "task": "Use these evidence-backed findings to draft a research brief.",
+      "payload": {
+        "topic": "Considerations for Using AI Agents in Customer Support",
+        "findings": [
+          {
+            "claim": "AI agents in customer support should include a human escalation path to handle unresolved or complex queries.",
+            "evidence": [
+              {
+                "source_id": "SRC-001",
+                "title": "AI Agents in Customer Support Operations",
+                "snippet": "The rollout improved only after the team added an escalation rule: unresolved or high-frustration conversations were routed to a human specialist.",
+                "relevance_score": 0.9
+              }
+            ],
+            "confidence": 0.9,
+            "limitations": "The evidence is based on a single case study from a telecom company, which may not be representative of all industries."
+          },
+          {
+            "claim": "AI agents can improve efficiency by handling triage and summarization tasks, reducing repetitive work for human agents.",
+            "evidence": [
+              {
+                "source_id": "SRC-001",
+                "title": "AI Agents in Customer Support Operations",
+                "snippet": "The AI assistant summarized the issue, collected account context, and suggested likely resolution paths. Human agents reported that summaries reduced repetitive reading time and improved consistency across shifts.",
+                "relevance_score": 0.85
+              }
+            ],
+            "confidence": 0.85,
+            "limitations": "The improvement in efficiency is context-dependent and may vary with the complexity of customer queries."
+          },
+          {
+            "claim": "AI systems in customer support must have clear ownership and policy checks to avoid unsupported promises and data privacy issues.",
+            "evidence": [
+              {
+                "source_id": "SRC-001",
+                "title": "AI Agents in Customer Support Operations",
+                "snippet": "Quality review found three important risks. First, unsupported refund promises created downstream complaints. Second, customers sometimes shared sensitive information that should not be stored in prompts.",
+                "relevance_score": 0.8
+              }
+            ],
+            "confidence": 0.8,
+            "limitations": "The evidence highlights risks but does not provide a comprehensive solution for all potential issues."
+          }
+        ],
+        "unresolved_questions": [
+          "How can AI agents be designed to better handle mixed-intent queries from customers?",
+          "What are the best practices for ensuring data privacy when using AI in customer support?"
+        ],
+        "overall_confidence": 0.85
+      },
+      "confidence": 0.85,
+      "created_at": "2026-07-05T09:48:48.656131+00:00"
+    },
+    {
+      "trace_id": "msg_83b679d2",
+      "sender": "writer",
+      "receiver": "fact_checker",
+      "message_type": "result",
+      "task": "Check this draft against the Researcher evidence.",
+      "payload": {
+        "title": "Key Considerations for Implementing AI Agents in Customer Support",
+        "executive_summary": "Organizations considering the use of AI agents in customer support should focus on several key areas to ensure successful implementation. These include establishing a human escalation path for complex queries, leveraging AI for efficiency in triage and summarization tasks, and ensuring clear ownership and policy checks to mitigate risks such as unsupported promises and data privacy issues. While AI can significantly enhance support operations, careful planning and risk management are essential.",
+        "sections": [
+          {
+            "heading": "Human Escalation Path for Complex Queries",
+            "content": "AI agents in customer support should include a human escalation path to handle unresolved or complex queries. This approach ensures that when AI systems encounter high-frustration or unresolved issues, they can route these conversations to human specialists. This strategy was highlighted in a case study from a telecom company, which reported improved outcomes after implementing such an escalation rule. However, this evidence is based on a single industry example and may not be universally applicable.",
+            "claim_ids": [
+              0
+            ]
+          },
+          {
+            "heading": "Efficiency Gains Through AI Triage and Summarization",
+            "content": "AI agents can significantly improve efficiency in customer support by handling triage and summarization tasks. By summarizing issues, collecting account context, and suggesting resolution paths, AI systems reduce repetitive work for human agents, allowing them to focus on more complex tasks. This leads to improved consistency and reduced reading time across shifts. However, the extent of these efficiency gains can vary depending on the complexity of customer queries.",
+            "claim_ids": [
+              1
+            ]
+          },
+          {
+            "heading": "Ownership and Policy Checks to Mitigate Risks",
+            "content": "Implementing AI in customer support requires clear ownership and policy checks to avoid risks such as unsupported promises and data privacy issues. Quality reviews have identified risks like unsupported refund promises and the inappropriate storage of sensitive customer information. While these findings highlight important risks, they do not offer comprehensive solutions for all potential issues, indicating a need for ongoing risk management and policy development.",
+            "claim_ids": [
+              2
+            ]
+          }
+        ],
+        "risks_or_uncertainties": [
+          "The evidence for the effectiveness of human escalation paths is based on a single case study, which may not be representative of all industries.",
+          "The efficiency improvements from AI triage and summarization are context-dependent and may vary with the complexity of customer queries.",
+          "The identified risks related to unsupported promises and data privacy do not cover all potential issues, requiring further exploration and policy development."
+        ],
+        "source_ids_used": [
+          "SRC-001"
+        ]
+      },
+      "confidence": 0.72,
+      "created_at": "2026-07-05T09:48:52.592905+00:00"
+    },
+    {
+      "trace_id": "msg_cfa1356c",
+      "sender": "fact_checker",
+      "receiver": "writer",
+      "message_type": "critique",
+      "task": "Revise the draft if needed; otherwise prepare final editing.",
+      "payload": {
+        "checks": [
+          {
+            "claim": "AI agents in customer support should include a human escalation path to handle unresolved or complex queries.",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001"
+            ],
+            "issue": "The claim is based on a single case study from a telecom company.",
+            "recommendation": "Acknowledge the limitation that the evidence is from a single industry example and may not be universally applicable."
+          },
+          {
+            "claim": "AI agents can significantly improve efficiency in customer support by handling triage and summarization tasks.",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001"
+            ],
+            "issue": "The extent of efficiency gains can vary depending on the complexity of customer queries.",
+            "recommendation": "Include a note that efficiency improvements are context-dependent and may vary with the complexity of customer queries."
+          },
+          {
+            "claim": "Implementing AI in customer support requires clear ownership and policy checks to avoid risks such as unsupported promises and data privacy issues.",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001"
+            ],
+            "issue": "The evidence highlights risks but does not provide comprehensive solutions for all potential issues.",
+            "recommendation": "Emphasize the need for ongoing risk management and policy development to address all potential issues."
+          }
+        ],
+        "summary": "The draft report's claims are generally supported by the research evidence provided. However, it is important to note the limitations of the evidence, such as its reliance on a single case study and the context-dependent nature of efficiency gains. Recommendations include acknowledging these limitations and emphasizing the need for ongoing risk management.",
+        "revision_required": true,
+        "overall_reliability": 0.85
+      },
+      "confidence": 0.85,
+      "created_at": "2026-07-05T09:48:54.990248+00:00"
+    },
+    {
+      "trace_id": "msg_9afa3c87",
+      "sender": "writer",
+      "receiver": "fact_checker",
+      "message_type": "result",
+      "task": "Check the revised draft against the Researcher evidence.",
+      "payload": {
+        "title": "Key Considerations for Implementing AI Agents in Customer Support",
+        "executive_summary": "Organizations looking to implement AI agents in customer support should consider several key factors to ensure success. These include establishing a human escalation path for complex queries, leveraging AI for efficiency in triage and summarization tasks, and implementing clear ownership and policy checks to mitigate risks such as unsupported promises and data privacy issues. While AI can significantly enhance customer support operations, the effectiveness and efficiency gains are context-dependent and require ongoing risk management and policy development.",
+        "sections": [
+          {
+            "heading": "Human Escalation Path",
+            "content": "AI agents in customer support should include a human escalation path to handle unresolved or complex queries. This approach ensures that when AI systems reach their limitations, human specialists can intervene to provide the necessary support. However, it is important to note that this recommendation is based on a single case study from a telecom company, which may not be universally applicable across all industries.",
+            "claim_ids": [
+              0
+            ]
+          },
+          {
+            "heading": "Efficiency Improvements",
+            "content": "AI agents can improve efficiency in customer support by handling triage and summarization tasks, thereby reducing repetitive work for human agents. This allows human agents to focus on more complex issues, improving overall service quality. However, the extent of these efficiency gains can vary depending on the complexity of customer queries, indicating that improvements are context-dependent.",
+            "claim_ids": [
+              1
+            ]
+          },
+          {
+            "heading": "Ownership and Policy Checks",
+            "content": "Implementing AI in customer support requires clear ownership and policy checks to avoid risks such as unsupported promises and data privacy issues. Organizations must ensure that AI systems do not make unsupported commitments and that customer data is handled with care. While the evidence highlights these risks, it does not provide comprehensive solutions, emphasizing the need for ongoing risk management and policy development.",
+            "claim_ids": [
+              2
+            ]
+          }
+        ],
+        "risks_or_uncertainties": [
+          "The evidence for the human escalation path is based on a single industry example and may not be universally applicable.",
+          "Efficiency improvements are context-dependent and may vary with the complexity of customer queries.",
+          "The evidence highlights risks but does not provide comprehensive solutions for all potential issues."
+        ],
+        "source_ids_used": [
+          "SRC-001"
+        ]
+      },
+      "confidence": 0.78,
+      "created_at": "2026-07-05T09:48:58.215111+00:00"
+    },
+    {
+      "trace_id": "msg_8338275a",
+      "sender": "fact_checker",
+      "receiver": "editor",
+      "message_type": "critique",
+      "task": "Use this final check to produce the final answer.",
+      "payload": {
+        "checks": [
+          {
+            "claim": "AI agents in customer support should include a human escalation path to handle unresolved or complex queries.",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001"
+            ],
+            "issue": "The claim is supported by evidence from a single case study in the telecom industry, which may not be universally applicable.",
+            "recommendation": "Clarify that the recommendation is based on a single case study and may not apply to all industries."
+          },
+          {
+            "claim": "AI agents can improve efficiency by handling triage and summarization tasks, reducing repetitive work for human agents.",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001"
+            ],
+            "issue": "The claim is supported, but the extent of efficiency improvements is context-dependent.",
+            "recommendation": "Emphasize the context-dependent nature of efficiency improvements in the report."
+          },
+          {
+            "claim": "Implementing AI in customer support requires clear ownership and policy checks to avoid risks such as unsupported promises and data privacy issues.",
+            "verdict": "supported",
+            "evidence_refs": [
+              "SRC-001"
+            ],
+            "issue": "The claim is supported, but the evidence does not provide comprehensive solutions for all potential issues.",
+            "recommendation": "Highlight the need for ongoing risk management and policy development to address these issues comprehensively."
+          }
+        ],
+        "summary": "All major claims in the draft report are supported by the research evidence. However, the report should clarify the context-dependent nature of the findings and the limitations of the evidence, particularly regarding the human escalation path and efficiency improvements.",
+        "revision_required": true,
+        "overall_reliability": 0.85
+      },
+      "confidence": 0.85,
+      "created_at": "2026-07-05T09:49:01.041555+00:00"
+    },
+    {
+      "trace_id": "msg_32b0b648",
+      "sender": "editor",
+      "receiver": "orchestrator",
+      "message_type": "final",
+      "task": "Return the final answer to the user.",
+      "payload": {
+        "title": "Key Considerations for Implementing AI Agents in Customer Support",
+        "final_answer": "Organizations aiming to integrate AI agents into customer support should carefully consider several factors to ensure successful implementation. Key considerations include establishing a human escalation path for complex queries, leveraging AI for efficiency in triage and summarization tasks, and implementing clear ownership and policy checks to mitigate risks such as unsupported promises and data privacy issues. While AI can significantly enhance customer support operations, the effectiveness and efficiency gains are context-dependent and require ongoing risk management and policy development. It is important to note that some recommendations, such as the human escalation path, are based on evidence from a single case study in the telecom industry and may not be universally applicable across all sectors.",
+        "key_takeaways": [
+          "AI agents can improve efficiency in customer support by handling routine tasks, allowing human agents to focus on complex issues.",
+          "A human escalation path is crucial for handling unresolved or complex queries, though its applicability may vary across industries.",
+          "Clear ownership and policy checks are essential to prevent unsupported promises and ensure data privacy."
+        ],
+        "caveats": [
+          "The recommendation for a human escalation path is based on a single case study and may not be applicable to all industries.",
+          "Efficiency improvements from AI are context-dependent and may vary with the complexity of customer queries.",
+          "The evidence highlights risks but does not provide comprehensive solutions for all potential issues."
+        ],
+        "references": [
+          "SRC-001"
+        ],
+        "editor_notes": "The final report clarifies the context-dependent nature of the findings and the limitations of the evidence, particularly regarding the human escalation path and efficiency improvements. It emphasizes the need for ongoing risk management and policy development to address potential issues comprehensively."
+      },
+      "confidence": 0.85,
+      "created_at": "2026-07-05T09:49:03.928795+00:00"
+    }
+  ],
+  "research_report": {
+    "topic": "Considerations for Using AI Agents in Customer Support",
+    "findings": [
+      {
+        "claim": "AI agents in customer support should include a human escalation path to handle unresolved or complex queries.",
+        "evidence": [
+          {
+            "source_id": "SRC-001",
+            "title": "AI Agents in Customer Support Operations",
+            "snippet": "The rollout improved only after the team added an escalation rule: unresolved or high-frustration conversations were routed to a human specialist.",
+            "relevance_score": 0.9
+          }
+        ],
+        "confidence": 0.9,
+        "limitations": "The evidence is based on a single case study from a telecom company, which may not be representative of all industries."
+      },
+      {
+        "claim": "AI agents can improve efficiency by handling triage and summarization tasks, reducing repetitive work for human agents.",
+        "evidence": [
+          {
+            "source_id": "SRC-001",
+            "title": "AI Agents in Customer Support Operations",
+            "snippet": "The AI assistant summarized the issue, collected account context, and suggested likely resolution paths. Human agents reported that summaries reduced repetitive reading time and improved consistency across shifts.",
+            "relevance_score": 0.85
+          }
+        ],
+        "confidence": 0.85,
+        "limitations": "The improvement in efficiency is context-dependent and may vary with the complexity of customer queries."
+      },
+      {
+        "claim": "AI systems in customer support must have clear ownership and policy checks to avoid unsupported promises and data privacy issues.",
+        "evidence": [
+          {
+            "source_id": "SRC-001",
+            "title": "AI Agents in Customer Support Operations",
+            "snippet": "Quality review found three important risks. First, unsupported refund promises created downstream complaints. Second, customers sometimes shared sensitive information that should not be stored in prompts.",
+            "relevance_score": 0.8
+          }
+        ],
+        "confidence": 0.8,
+        "limitations": "The evidence highlights risks but does not provide a comprehensive solution for all potential issues."
+      }
+    ],
+    "unresolved_questions": [
+      "How can AI agents be designed to better handle mixed-intent queries from customers?",
+      "What are the best practices for ensuring data privacy when using AI in customer support?"
+    ],
+    "overall_confidence": 0.85
+  },
+  "draft_report": {
+    "title": "Key Considerations for Implementing AI Agents in Customer Support",
+    "executive_summary": "Organizations looking to implement AI agents in customer support should consider several key factors to ensure success. These include establishing a human escalation path for complex queries, leveraging AI for efficiency in triage and summarization tasks, and implementing clear ownership and policy checks to mitigate risks such as unsupported promises and data privacy issues. While AI can significantly enhance customer support operations, the effectiveness and efficiency gains are context-dependent and require ongoing risk management and policy development.",
+    "sections": [
+      {
+        "heading": "Human Escalation Path",
+        "content": "AI agents in customer support should include a human escalation path to handle unresolved or complex queries. This approach ensures that when AI systems reach their limitations, human specialists can intervene to provide the necessary support. However, it is important to note that this recommendation is based on a single case study from a telecom company, which may not be universally applicable across all industries.",
+        "claim_ids": [
+          0
+        ]
+      },
+      {
+        "heading": "Efficiency Improvements",
+        "content": "AI agents can improve efficiency in customer support by handling triage and summarization tasks, thereby reducing repetitive work for human agents. This allows human agents to focus on more complex issues, improving overall service quality. However, the extent of these efficiency gains can vary depending on the complexity of customer queries, indicating that improvements are context-dependent.",
+        "claim_ids": [
+          1
+        ]
+      },
+      {
+        "heading": "Ownership and Policy Checks",
+        "content": "Implementing AI in customer support requires clear ownership and policy checks to avoid risks such as unsupported promises and data privacy issues. Organizations must ensure that AI systems do not make unsupported commitments and that customer data is handled with care. While the evidence highlights these risks, it does not provide comprehensive solutions, emphasizing the need for ongoing risk management and policy development.",
+        "claim_ids": [
+          2
+        ]
+      }
+    ],
+    "risks_or_uncertainties": [
+      "The evidence for the human escalation path is based on a single industry example and may not be universally applicable.",
+      "Efficiency improvements are context-dependent and may vary with the complexity of customer queries.",
+      "The evidence highlights risks but does not provide comprehensive solutions for all potential issues."
+    ],
+    "source_ids_used": [
+      "SRC-001"
+    ]
+  },
+  "fact_check_report": {
+    "checks": [
+      {
+        "claim": "AI agents in customer support should include a human escalation path to handle unresolved or complex queries.",
+        "verdict": "supported",
+        "evidence_refs": [
+          "SRC-001"
+        ],
+        "issue": "The claim is supported by evidence from a single case study in the telecom industry, which may not be universally applicable.",
+        "recommendation": "Clarify that the recommendation is based on a single case study and may not apply to all industries."
+      },
+      {
+        "claim": "AI agents can improve efficiency by handling triage and summarization tasks, reducing repetitive work for human agents.",
+        "verdict": "supported",
+        "evidence_refs": [
+          "SRC-001"
+        ],
+        "issue": "The claim is supported, but the extent of efficiency improvements is context-dependent.",
+        "recommendation": "Emphasize the context-dependent nature of efficiency improvements in the report."
+      },
+      {
+        "claim": "Implementing AI in customer support requires clear ownership and policy checks to avoid risks such as unsupported promises and data privacy issues.",
+        "verdict": "supported",
+        "evidence_refs": [
+          "SRC-001"
+        ],
+        "issue": "The claim is supported, but the evidence does not provide comprehensive solutions for all potential issues.",
+        "recommendation": "Highlight the need for ongoing risk management and policy development to address these issues comprehensively."
+      }
+    ],
+    "summary": "All major claims in the draft report are supported by the research evidence. However, the report should clarify the context-dependent nature of the findings and the limitations of the evidence, particularly regarding the human escalation path and efficiency improvements.",
+    "revision_required": true,
+    "overall_reliability": 0.85
+  },
+  "final_report": {
+    "title": "Key Considerations for Implementing AI Agents in Customer Support",
+    "final_answer": "Organizations aiming to integrate AI agents into customer support should carefully consider several factors to ensure successful implementation. Key considerations include establishing a human escalation path for complex queries, leveraging AI for efficiency in triage and summarization tasks, and implementing clear ownership and policy checks to mitigate risks such as unsupported promises and data privacy issues. While AI can significantly enhance customer support operations, the effectiveness and efficiency gains are context-dependent and require ongoing risk management and policy development. It is important to note that some recommendations, such as the human escalation path, are based on evidence from a single case study in the telecom industry and may not be universally applicable across all sectors.",
+    "key_takeaways": [
+      "AI agents can improve efficiency in customer support by handling routine tasks, allowing human agents to focus on complex issues.",
+      "A human escalation path is crucial for handling unresolved or complex queries, though its applicability may vary across industries.",
+      "Clear ownership and policy checks are essential to prevent unsupported promises and ensure data privacy."
+    ],
+    "caveats": [
+      "The recommendation for a human escalation path is based on a single case study and may not be applicable to all industries.",
+      "Efficiency improvements from AI are context-dependent and may vary with the complexity of customer queries.",
+      "The evidence highlights risks but does not provide comprehensive solutions for all potential issues."
+    ],
+    "references": [
+      "SRC-001"
+    ],
+    "editor_notes": "The final report clarifies the context-dependent nature of the findings and the limitations of the evidence, particularly regarding the human escalation path and efficiency improvements. It emphasizes the need for ongoing risk management and policy development to address potential issues comprehensively."
+  },
+  "revision_count": 1,
+  "max_revisions": 1,
+  "status": "completed",
+  "errors": []
+}
