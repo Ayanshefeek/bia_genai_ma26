@@ -1,0 +1,17 @@
+{
+  "name": "Source to Target: artifact name",
+  "source_role": "",
+  "target_role": "",
+  "trigger": "",
+  "input_schema": {
+    "field_name": "Meaning and expected format"
+  },
+  "output_schema": {
+    "field_name": "Meaning and expected format"
+  },
+  "quality_checks": [],
+  "stop_conditions": [],
+  "retry_policy": "",
+  "escalation_path": "",
+  "logging_fields": []
+}

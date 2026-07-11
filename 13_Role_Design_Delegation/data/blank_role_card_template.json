@@ -1,0 +1,16 @@
+{
+  "name": "",
+  "role_type": "Researcher",
+  "mission": "",
+  "responsibilities": [],
+  "decision_rights": [],
+  "tools_allowed": [],
+  "inputs_expected": [],
+  "outputs_owned": [],
+  "success_metrics": [],
+  "failure_modes": [],
+  "stop_conditions": [],
+  "escalation_path": "",
+  "memory_access": "none",
+  "max_iterations": 1
+}
