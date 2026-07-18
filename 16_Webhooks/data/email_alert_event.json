@@ -1,0 +1,12 @@
+{
+  "event_id": "evt_email_3001",
+  "event_type": "email.alert_received",
+  "source": "email",
+  "text": "Urgent: The nightly document processing job failed three times. The team needs a quick summary of what happened and what to check first.",
+  "user_email": "ops@example.com",
+  "metadata": {
+    "mailbox": "ops-alerts",
+    "severity": "urgent",
+    "system": "document-processing"
+  }
+}

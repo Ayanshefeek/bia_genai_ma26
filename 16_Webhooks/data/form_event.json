@@ -1,0 +1,12 @@
+{
+  "event_id": "evt_form_1001",
+  "event_type": "support.form_submitted",
+  "source": "form",
+  "text": "I tried following the onboarding guide but the API key setup section is confusing. I do not know where to place the .env file or how to confirm that the key is loaded.",
+  "user_email": "learner@example.com",
+  "metadata": {
+    "page": "onboarding",
+    "customer_tier": "trial",
+    "submitted_from": "website_contact_form"
+  }
+}
