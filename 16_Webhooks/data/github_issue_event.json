@@ -1,0 +1,9 @@
+{
+  "event_id": "evt_gh_2001",
+  "action": "opened",
+  "repository": "bia-agentic-ai/demo-agent",
+  "issue_number": 42,
+  "issue_title": "Webhook demo fails when .env file is missing",
+  "issue_body": "The local FastAPI server starts, but the agent call fails because OPENAI_API_KEY is not configured. The error message should be clearer for first-time users.",
+  "sender": "course-participant"
+}

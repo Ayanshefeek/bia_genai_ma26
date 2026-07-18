@@ -1,0 +1,23 @@
+### Health check
+GET http://127.0.0.1:8000/health
+
+### Send text-submitted webhook
+POST http://127.0.0.1:8000/webhooks/text-submitted
+Content-Type: application/json
+
+{
+  "event_id": "evt_manual_9001",
+  "event_type": "support.form_submitted",
+  "source": "form",
+  "text": "The FastAPI webhook endpoint works, but I am confused about why the server returns a job ID before the agent result is ready.",
+  "user_email": "learner@example.com",
+  "metadata": {
+    "page": "classroom-demo"
+  }
+}
+
+### List jobs
+GET http://127.0.0.1:8000/jobs
+
+### Replace job_abc with a real job_id from the webhook response
+GET http://127.0.0.1:8000/jobs/job_abc
