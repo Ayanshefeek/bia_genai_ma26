@@ -1,0 +1,47 @@
+[
+  {
+    "event_type": "email",
+    "title": "Client asks for a project status summary",
+    "source": "mock",
+    "priority": "high",
+    "payload": {
+      "from": "maya@northstar-retail.example",
+      "subject": "Can you send a status update before 4 PM?",
+      "body": "Hi, we have a leadership sync today. Please send a short update on completed work, open risks, and what you need from us.",
+      "received_at": "2026-07-01T09:30:00+05:30"
+    }
+  },
+  {
+    "event_type": "calendar",
+    "title": "Upcoming design review in 45 minutes",
+    "source": "mock",
+    "priority": "normal",
+    "payload": {
+      "calendar": "Work",
+      "meeting_title": "Streaming assistant design review",
+      "attendees": [
+        "Product Lead",
+        "Engineering Lead",
+        "Trainer"
+      ],
+      "starts_at": "2026-07-01T15:00:00+05:30",
+      "agenda": [
+        "Review event-driven architecture",
+        "Discuss streaming UX",
+        "Assign next build tasks"
+      ]
+    }
+  },
+  {
+    "event_type": "task",
+    "title": "Prepare handoff checklist for a delayed integration",
+    "source": "mock",
+    "priority": "urgent",
+    "payload": {
+      "task_id": "TASK-418",
+      "owner": "AI Engineering Team",
+      "due": "2026-07-01T18:00:00+05:30",
+      "notes": "The webhook integration is delayed. Prepare a concise handoff with blockers, next actions, and escalation path."
+    }
+  }
+]
