@@ -1,0 +1,38 @@
+{
+  "title": "AgentOps Observability \u2013 LLM Metrics",
+  "timezone": "browser",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Total LLM Requests",
+      "targets": [
+        {
+          "expr": "sum(llm_requests_total)"
+        }
+      ],
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "graph",
+      "title": "LLM Latency (p95)",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(llm_request_latency_seconds_bucket[5m])) by (le))"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 8,
+        "y": 0
+      }
+    }
+  ],
+  "schemaVersion": 36,
+  "version": 1
+}
