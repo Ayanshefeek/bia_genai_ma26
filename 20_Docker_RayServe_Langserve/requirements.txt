@@ -1,0 +1,11 @@
+openai>=1.35.0
+langchain>=0.2.2
+langserve>=0.0.46
+fastapi>=0.110.0
+uvicorn>=0.30.0
+ray[serve]
+python-dotenv>=1.0.1
+pandas>=2.0.0
+matplotlib>=3.7.0
+langchain-openai
+sse_starlette
