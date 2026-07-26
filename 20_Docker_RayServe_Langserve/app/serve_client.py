@@ -30,13 +30,12 @@ try:
     
     # Print the LLM's response
     print("\n--- LLM Response ---")
-    print(result)
     print(result.get("response"))
     print("--------------------")
 
 except requests.exceptions.ConnectionError:
     print("\nError: Could not connect to the server.")
-    print("Please ensure 'serve_llm.py' is running in a separate terminal.")
+    print("Please ensure 'rayservie_app.py' is running in a separate terminal.")
     print("The server must be active before running the client script.")
 
 except requests.exceptions.RequestException as e:
