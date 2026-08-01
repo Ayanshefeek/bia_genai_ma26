@@ -1,0 +1,4 @@
+provider,file,clarity_1_5,naturalness_1_5,latency_1_5,pronunciation_1_5,avatar_readiness_1_5,notes
+openai,outputs/openai_response.mp3,,,,,,
+elevenlabs,outputs/elevenlabs_response.mp3,,,,,,
+piper,outputs/piper_response.wav,,,,,,

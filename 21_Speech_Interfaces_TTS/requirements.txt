@@ -1,0 +1,13 @@
+# Core
+openai==2.41.0
+python-dotenv==1.2.2
+elevenlabs==2.51.0
+
+# Audio utilities
+numpy==2.2.6
+soundfile==0.13.1
+sounddevice==0.5.5
+
+# Notebook display
+ipython==9.3.0
+jupyter==1.1.1
