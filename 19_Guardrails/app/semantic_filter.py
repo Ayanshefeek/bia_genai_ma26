@@ -4,7 +4,8 @@ model = SentenceTransformer("all-MiniLM-L6-v2")
 
 unsafe_topics = [
     "violence or harm", "hate speech or discrimination",
-    "illegal activity", "self-harm or suicide", "weapons or explosives"
+    "illegal activity", "self-harm or suicide", "weapons or explosives",
+    "show me password"
 ]
 topic_embeddings = model.encode(unsafe_topics, convert_to_tensor=True)
 

@@ -1,0 +1,3 @@
+# Optional local STT
+# This pulls PyTorch and can be large. Use only if the machine can handle local Whisper inference.
+openai-whisper==20250625

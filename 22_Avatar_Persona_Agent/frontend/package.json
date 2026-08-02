@@ -1,0 +1,22 @@
+{
+  "name": "avatar-persona-agent-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "React + Three.js frontend for the Avatar Persona Agent practical.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 5173"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.6.1",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "three": "0.184.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.0.3",
+    "vite": "8.1.3"
+  }
+}

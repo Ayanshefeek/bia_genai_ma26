@@ -1,0 +1,9 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+backend/generated_audio/*.mp3
+backend/generated_audio/*.wav
+frontend/node_modules/
+frontend/dist/
+.ipynb_checkpoints/
