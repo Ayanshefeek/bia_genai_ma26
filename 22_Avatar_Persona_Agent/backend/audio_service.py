@@ -74,9 +74,10 @@ async def transcribe_upload(file: UploadFile, settings: Settings) -> str:
 
     # COST NOTE: Classroom clips should stay under 10 seconds to keep STT cost low.
     try:
-        with tempfile.NamedTemporaryFile(delete=True, suffix=suffix) as temp_file:
+        with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as temp_file:
             temp_file.write(audio_bytes)
             temp_file.flush()
+
             with open(temp_file.name, "rb") as audio_handle:
                 transcript = client.audio.transcriptions.create(
                     model=settings.openai_stt_model,
