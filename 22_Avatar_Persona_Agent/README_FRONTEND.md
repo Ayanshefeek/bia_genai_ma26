@@ -1,0 +1,35 @@
+User types message
+        │
+        ▼
+App.jsx
+        │
+        ▼
+sendChat()
+        │
+        ▼
+Backend
+        │
+        ▼
+assistant_text
+audio_url
+        │
+        ▼
+playAudio()
+        │
+        ▼
+AudioContext
+        │
+        ▼
+AnalyserNode
+        │
+        ▼
+Amplitude
+        │
+        ▼
+AvatarCanvas
+        │
+        ▼
+ProceduralAvatar
+        │
+        ▼
+Mouth opens and closes
